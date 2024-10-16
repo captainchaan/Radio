@@ -3,6 +3,16 @@ package ru.netology.statistic;
 public class Radio {
     private int currentStation;
     private int soundVolume;
+    private int countStation = 10;
+    private int maxStation = countStation - 1;
+
+    public Radio(int countStation) {
+        this.countStation = countStation;
+        this.maxStation = this.countStation - 1;
+    }
+
+    public Radio() {
+    }
 
 
     public int getCurrentStation() {
@@ -13,14 +23,14 @@ public class Radio {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void nextStation() {
-        if (currentStation != 9) {
+        if (currentStation != maxStation) {
             currentStation++;
         } else {
             currentStation = 0;
@@ -31,7 +41,7 @@ public class Radio {
         if (currentStation != 0) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 
@@ -63,4 +73,5 @@ public class Radio {
 
 
 }
+
 
